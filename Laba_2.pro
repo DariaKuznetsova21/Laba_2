@@ -27,7 +27,6 @@ SOURCES += \
         main.cpp \
 
 HEADERS += \
-        mainwindow.h\
         method_unit.h \
         print_operator_unit.h \
         unit.h \

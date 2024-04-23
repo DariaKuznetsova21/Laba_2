@@ -1,7 +1,9 @@
 #ifndef CLASS_UNIT_H
 #define CLASS_UNIT_H
 #include "unit.h"
-
+#include <string>
+#include <vector>
+#include <memory>
 
 // конкретная языковая конструкция класса некоторого языка
 class ClassUnit : public Unit
@@ -35,7 +37,7 @@ public:
         std::string result = generateShift(level) + "class" + m_name +"{\n";
 
         for(size_t i = 0; i < ACCESS_MODIFIERS.size(); i++){
-            if(m_field[i].empty()){
+            if(m_fields[i].empty()){
                 continue;
             }
             result += ACCESS_MODIFIERS[i] + ":\n";

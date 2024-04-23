@@ -1,5 +1,8 @@
 #ifndef METHOD_UNIT_H
 #define METHOD_UNIT_H
+#include <string>
+#include <vector>
+#include <memory>
 // конкретная языковая конструкция метода некоторого языка
 class MethodUnit : public Unit
 {
