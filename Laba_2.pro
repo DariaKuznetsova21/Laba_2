@@ -25,12 +25,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
+    main.cpp
 
 HEADERS += \
+        cpp/class_unit.h \
+        cpp/method_unit.h \
+        cpp/print_operator_unit.h \
         method_unit.h \
         print_operator_unit.h \
         unit.h \
-    method_unit.h \
-    print_operator_unit.h \
-    unit.h \
-    class_unit.h
+        class_unit.h \
+
