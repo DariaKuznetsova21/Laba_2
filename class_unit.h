@@ -14,9 +14,12 @@ public:
     {
         PUBLIC,
         PROTECTED,
-        PRIVATE
+        PRIVATE,
+        INTERNAL,
+        PROTECTED_INTERNAL,
+        PRIVATE_PROTECTED
     };
-    static const std::vector<std::string> ACCESS_MODIFIERS;
+
 public:
     explicit ClassUnit(const std::string &name, size_t fields_size): m_name(name), m_fields(fields_size){}
 
