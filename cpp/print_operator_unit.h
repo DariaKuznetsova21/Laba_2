@@ -4,19 +4,13 @@
 #include <vector>
 #include <memory>
 // конкретная языковая конструкция оператора вывода некоторого языка
-class PrintOperatorUnit : public Unit
+class CppPrintOperatorUnit : public PrintOperatorUnit
 {
 public:
-    explicit PrintOperatorUnit(const std::string &text)
-        : m_text(text)
-    {
-
-    }
+    explicit CppPrintOperatorUnit(const std::string &text): PrintOperatorUnit(text){}
 
     std::string compile(unsigned int level = 0) const {
-        return generateShift(level)+ "printf(\"" + m_text + "\" );\n";
+        return generateShift(level)+ "std::cout << \"" + m_text + "\" << endl;\n";
     }
-private:
-    std::string m_text; // текст, который должен вывести данный оператор
 };
 #endif // PRINT_OPERATOR_UNIT_H

@@ -12,10 +12,7 @@ public:
     {
 
     }
-
-    std::string compile(unsigned int level = 0) const {
-        return generateShift(level)+ "printf(\"" + m_text + "\" );\n";
-    }
+    virtual ~PrintOperatorUnit() = default;
 private:
     std::string m_text; // текст, который должен вывести данный оператор
 };
