@@ -31,6 +31,9 @@ HEADERS += \
         cpp/class_unit.h \
         cpp/method_unit.h \
         cpp/print_operator_unit.h \
+        cs/class_unit.h \
+        cs/method_unit.h \
+        cs/print_operator_unit.h \
         method_unit.h \
         print_operator_unit.h \
         unit.h \
