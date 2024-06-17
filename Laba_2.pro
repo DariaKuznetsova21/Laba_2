@@ -33,6 +33,9 @@ HEADERS += \
         cs/class_unit.h \
         cs/method_unit.h \
         cs/print_operator_unit.h \
+        java/class_unit.h \
+        java/method_unit.h \
+        java/print_operator_unit.h \
         method_unit.h \
         print_operator_unit.h \
         unit.h \
