@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    main.cpp
 
 HEADERS += \
         cpp/class_unit.h \
@@ -38,4 +37,5 @@ HEADERS += \
         print_operator_unit.h \
         unit.h \
         class_unit.h \
+        factory.h
 

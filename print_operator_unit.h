@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "unit.h"
 // конкретная языковая конструкция оператора вывода некоторого языка
 class PrintOperatorUnit : public Unit
 {
@@ -13,7 +14,7 @@ public:
 
     }
     virtual ~PrintOperatorUnit() = default;
-private:
+protected:
     std::string m_text; // текст, который должен вывести данный оператор
 };
 #endif // PRINT_OPERATOR_UNIT_H

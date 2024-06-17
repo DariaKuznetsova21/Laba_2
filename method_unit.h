@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include "unit.h"
 // конкретная языковая конструкция метода некоторого языка
 class MethodUnit : public Unit
 {
@@ -32,7 +33,7 @@ public:
         m_body.push_back( unit );
     }
 
-private:
+protected:
     std::string m_name; // имя метода
     std::string m_returnType; // тип возвращаемого методом значения
 

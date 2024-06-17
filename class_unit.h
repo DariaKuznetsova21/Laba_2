@@ -25,7 +25,7 @@ public:
 
     virtual ~ClassUnit() = default;
 
-private:
+protected:
     std::string m_name; // имя создаваемого класса
 
     using Fields = std::vector<std::shared_ptr<Unit>>; // тип данных для набора полей класса, 1 филдс уже вектор

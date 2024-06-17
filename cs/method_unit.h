@@ -1,44 +1,33 @@
-#ifndef METHOD_UNIT_H
-#define METHOD_UNIT_H
-#include <string>
-#include <vector>
-#include <memory>
+#ifndef CS_METHOD_UNIT_H
+#define CS_METHOD_UNIT_H
+#include "../method_unit.h"
 // конкретная языковая конструкция метода некоторого языка
-class MethodUnit : public Unit
+class CsMethodUnit : public MethodUnit
 {
 public:
-    // перечисление всех поддерживаемых модификаторов методов всех поддерживаемых языков
-    enum Modifier
-    {
-        STATIC = 1,
-        CONST = 1 << 1, // используются битовые флаги, то есть они могут быть установлены независимо, например STATIC | CONST
-        VIRTUAL = 1 << 2
-    };
+    CsMethodUnit(const std::string &name, const std::string &returnType, Flags flags): MethodUnit(name, returnType, flags){}
 
-public:
-    MethodUnit(const std::string &name, const std::string &returnType, Flags flags)//конструктор по умолчанию с 3 переменными
-        : m_name(name)
-        , m_returnType(returnType)
-        , m_flags(flags)
-    {}
+    std:: string compile( unsigned int level = 0) const {
 
-    virtual ~MethodUnit() = default;
+        std::string result = "";
 
-    void add( const std::shared_ptr<Unit>& unit, Flags /*flags*/ = 0)
-    {
-        if (unit == nullptr) {
-            throw std::runtime_error("The unit is nullptr.");
+        if (m_flags & STATIC) {
+            result += "static ";
         }
-        m_body.push_back( unit );
+        else if (m_flags & VIRTUAL){
+            result += "virtual ";
+        }
+
+        result += m_returnType + " ";
+        result += m_name + "() {\n";
+
+        for (const auto& b: m_body){
+            result += b->compile(level + 1);
+        }
+
+        result += generateShift(level) + "}\n";
+        return result;
     }
-
-private:
-    std::string m_name; // имя метода
-    std::string m_returnType; // тип возвращаемого методом значения
-
-    Flags m_flags; // выбранные модификаторы метода
-
-    std::vector<std::shared_ptr<Unit>> m_body; // тело метода в котором хранятся принадлежащие ему языковые конструкции
 };
 
 #endif // METHOD_UNIT_H

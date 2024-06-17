@@ -1,19 +1,17 @@
-#ifndef PRINT_OPERATOR_UNIT_H
-#define PRINT_OPERATOR_UNIT_H
-#include <string>
-#include <vector>
-#include <memory>
+#ifndef CS_PRINT_OPERATOR_UNIT_H
+#define CS_PRINT_OPERATOR_UNIT_H
+
+#include "../print_operator_unit.h"
+
 // конкретная языковая конструкция оператора вывода некоторого языка
-class PrintOperatorUnit : public Unit
+class CsPrintOperatorUnit : public PrintOperatorUnit
 {
 public:
-    explicit PrintOperatorUnit(const std::string &text)
-        : m_text(text)
-    {
+    explicit CsPrintOperatorUnit(const std::string &text) : PrintOperatorUnit(text){}
+    virtual ~CsPrintOperatorUnit() = default;
 
+    std::string compile(unsigned int level = 0) const {
+        return generateShift(level) + "Console.WriteLine(\"" + m_text + "\");\n";
     }
-    virtual ~PrintOperatorUnit() = default;
-private:
-    std::string m_text; // текст, который должен вывести данный оператор
 };
 #endif // PRINT_OPERATOR_UNIT_H

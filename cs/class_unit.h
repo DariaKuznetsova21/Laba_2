@@ -1,20 +1,19 @@
-#ifndef CLASS_UNIT_H
-#define CLASS_UNIT_H
-#include "unit.h"
-#include <string>
-#include <vector>
-#include <memory>
+#ifndef CS_CLASS_UNIT_H
+#define CS_CLASS_UNIT_H
+
+#include "../class_unit.h"
+
+
 
 // конкретная языковая конструкция класса некоторого языка
 class CsClassUnit : public ClassUnit
 {
 public:
     static const std::vector<std::string> ACCESS_MODIFIERS;
-public:
-    explicit CsClassUnit(const std::string &name, size_t fields_size): ClassUnit(name, fields_size){}
 
+    explicit CsClassUnit(const std::string &name): ClassUnit(name, ACCESS_MODIFIERS.size()){}
 
-    void add (const std::shared_ptr< Unit >& unit, Flags flags){
+    void add(const std::shared_ptr< Unit >& unit, Flags flags){
 
         if(unit == nullptr){
             throw std::runtime_error("This unit is nullptr");
@@ -25,12 +24,13 @@ public:
         if(flags < m_fields.size()){
            accessModifier = flags;
         }
+
         m_fields[accessModifier].push_back(unit);
     }
 
-    std:: string compile (unsigned int level = 0) const
+    std::string compile(unsigned int level = 0) const
     {
-        std::string result = generateShift(level) + "class" + m_name +"{\n";
+        std::string result = "class " + m_name +"{\n";
 
         for(size_t i = 0; i < ACCESS_MODIFIERS.size(); i++){
 

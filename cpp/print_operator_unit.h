@@ -1,8 +1,7 @@
-#ifndef PRINT_OPERATOR_UNIT_H
-#define PRINT_OPERATOR_UNIT_H
-#include <string>
-#include <vector>
-#include <memory>
+#ifndef CPP_PRINT_OPERATOR_UNIT_H
+#define CPP_PRINT_OPERATOR_UNIT_H
+
+#include "../print_operator_unit.h"
 // конкретная языковая конструкция оператора вывода некоторого языка
 class CppPrintOperatorUnit : public PrintOperatorUnit
 {
