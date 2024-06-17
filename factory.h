@@ -7,6 +7,9 @@
 #include "cpp/class_unit.h"
 #include "cpp/method_unit.h"
 #include "cpp/print_operator_unit.h"
+#include "java/class_unit.h"
+#include "java/method_unit.h"
+#include "java/print_operator_unit.h"
 
 // фабрика языков, классический вариант
 // базовый класс создателя обьектов
@@ -61,5 +64,25 @@ public:
         return std::make_shared<CsPrintOperatorUnit>(name);
     }
 };
+
+class JavaFactory : public LanguageFactory
+{
+public:
+    std::shared_ptr<ClassUnit> CreateClass(const std::string &name) const
+    {
+        return std::make_shared<JavaClassUnit>(name);
+    }
+
+    std::shared_ptr<MethodUnit> CreateMethod(const std::string &name, const std::string &returnType, Unit::Flags flags) const
+    {
+        return std::make_shared<JavaMethodUnit>(name, returnType, flags);
+    }
+
+    std::shared_ptr<PrintOperatorUnit> CreatePrintOperator(const std::string &name) const
+    {
+        return std::make_shared<JavaPrintOperatorUnit>(name);
+    }
+};
+
 
 #endif // FACTORY_H

@@ -9,7 +9,7 @@ public:
     explicit JavaPrintOperatorUnit(const std::string &text): PrintOperatorUnit(text){}
 
     std::string compile(unsigned int level = 0) const {
-        return generateShift(level)+ "System.out.println(\"" + m_text + "\" );\n";
+        return generateShift(level)+ "System.out.println(\"" + m_text + "\");\n";
     }
 };
 #endif // PRINT_OPERATOR_UNIT_H

@@ -12,7 +12,7 @@ public:
 public:
     explicit JavaClassUnit(const std::string &name): ClassUnit(name, ACCESS_MODIFIERS.size()) {}
 
-    void add(const std::shared_ptr< Unit >& unit, Flags flags){
+    void add(const std::shared_ptr< Unit >& unit, Flags flags = 0){
 
         if(unit == nullptr){
             throw std::runtime_error("This unit is nullptr");
