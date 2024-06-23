@@ -18,11 +18,7 @@ public:
     };
 
 public:
-    MethodUnit(const std::string &name, const std::string &returnType, Flags flags)//конструктор по умолчанию с 3 переменными
-        : m_name(name)
-        , m_returnType(returnType)
-        , m_flags(flags)
-    {}
+    MethodUnit(const std::string &name, const std::string &returnType, Flags flags): m_name(name), m_returnType(returnType), m_flags(flags){}
 
     virtual ~MethodUnit() = default;
 

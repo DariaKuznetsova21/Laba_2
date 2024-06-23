@@ -8,11 +8,7 @@
 class PrintOperatorUnit : public Unit
 {
 public:
-    explicit PrintOperatorUnit(const std::string &text)
-        : m_text(text)
-    {
-
-    }
+    explicit PrintOperatorUnit(const std::string &text): m_text(text){}
     virtual ~PrintOperatorUnit() = default;
 protected:
     std::string m_text; // текст, который должен вывести данный оператор
