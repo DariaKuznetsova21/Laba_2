@@ -4,13 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core
+QT -= gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = Laba_2
-TEMPLATE = app
-
+CONFIG += c++11 console
+CONFIG -= app_bundle
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -25,10 +23,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        cpp/class_unit.h \
+        cpp/method_unit.h \
+        cpp/print_operator_unit.h \
+        cs/class_unit.h \
+        cs/method_unit.h \
+        cs/print_operator_unit.h \
+        java/class_unit.h \
+        java/method_unit.h \
+        java/print_operator_unit.h \
+        method_unit.h \
+        print_operator_unit.h \
+        unit.h \
+        class_unit.h \
+        factory.h
 
-FORMS += \
-        mainwindow.ui
